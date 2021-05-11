@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Color.fromRGBO(211, 77, 43, 1),
-        // primarySwatch: Color.fromRGBO(185, 90, 60, 1),
+        // primaryColor: Color.fromRGBO(211, 77, 43, 1),
+        primarySwatch: Colors.red,
       ),
       home: IndexPage(),
     );
@@ -28,80 +28,43 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexState extends State<IndexPage> {
-  final List<BottomNavigationBarItem> bottomNavItems = [
-    BottomNavigationBarItem(
-      backgroundColor: Colors.white,
-      icon: Icon(Icons.home,
-        color:Color.fromRGBO(62, 55, 50, 1),
-      ),
-      title: Text(
-          "首页",
-        style: TextStyle(
-         color:Color.fromRGBO(62, 55, 50, 1),
-          fontSize: 14,
-        ),
-      ),
-    ),
-    BottomNavigationBarItem(
-      // backgroundColor: Colors.deepOrange,
-      icon: Icon(Icons.local_mall,
-        color:  Colors.black,),
-      title: Text("工作台",
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 14,
-        ),),
-    ),
-    BottomNavigationBarItem(
-      // backgroundColor: Colors.red,
-      icon: Icon(Icons.message,
-        color:  Colors.black,),
-      title: Text("资讯",
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 14,
-        ),),
-    ),
-    BottomNavigationBarItem(
-      // backgroundColor: Colors.red,
-      icon: Icon(Icons.person,
-        color:  Colors.black,),
-      title: Text("我的",
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 14,
-        ),),
-    ),
-  ];
-
   int currentIndex;
   List _titlearry = <String>['首页','工作台','资讯','我的'];
   final pages = [HomePage(), MsgPage(), CartPage(), PersonPage()];
-
   @override
   void initState() {
     super.initState();
     currentIndex = 0;
   }
 
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+     Scaffold(
       appBar: AppBar(
         title: Text('${_titlearry[currentIndex]}'),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: bottomNavItems,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: '主页',),
+          BottomNavigationBarItem(icon: Icon(Icons.local_mall), label: '商城'),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: '资讯'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: '我的'),
+        ],
+        type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
-        type: BottomNavigationBarType.shifting,
+        // selectedItemColor:Colors.red,
+        //  unselectedItemColor:Colors.black,
+        // type: BottomNavigationBarType.shifting,
         onTap: (index) {
           _changePage(index);
         },
       ),
       body: pages[currentIndex],
     );
-  }
 
+  }
   /*切换页面*/
   void _changePage(int index) {
     /*如果点击的导航项不是当前项  切换 */
