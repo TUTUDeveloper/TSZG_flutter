@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // primaryColor: Color.fromRGBO(211, 77, 43, 1),
-        primarySwatch: Colors.red,
+        primaryColor: Color.fromRGBO(253, 117, 80, 1),
+        // primarySwatch: Colors.red,
       ),
       home: IndexPage(),
     );
@@ -47,8 +47,8 @@ class _IndexState extends State<IndexPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: '主页',),
-          BottomNavigationBarItem(icon: Icon(Icons.local_mall), label: '商城'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页',),
+          BottomNavigationBarItem(icon: Icon(Icons.storefront_outlined), label: '查询'),
           BottomNavigationBarItem(icon: Icon(Icons.message), label: '资讯'),
           BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: '我的'),
         ],
