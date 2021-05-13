@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:toast/toast.dart';
+import 'dart:math' as math;
 class HomePage extends StatefulWidget {
   @override
   _HomecustomSView createState() => _HomecustomSView();
@@ -36,22 +37,23 @@ class _HomecustomSView extends State<HomePage> {
     color:Colors.white,
   ),
     Icon(
-      Icons.branding_watermark_outlined,
+      Icons.label_important,
       color:Colors.white,
     ),
     Icon(
-      Icons.check_circle_outlined,
+      Icons.library_add_check,
       color:Colors.white,
     ),];
 
-  final ZhiFapages =[ Icon(
-    Icons.check_circle_outlined,
+  final ZhiFapages =[
+    Icon(
+      Icons.person_search_rounded,
+      color:Colors.white,
+    ),Icon(
+    Icons.privacy_tip_outlined,
     color:Colors.white,
   ),
-    Icon(
-      Icons.check_circle_outlined,
-      color:Colors.white,
-    ),];
+    ];
 
   @override
   void initState() {
@@ -138,8 +140,91 @@ class _HomecustomSView extends State<HomePage> {
               ),
             ),
           ),
+//
+          SliverPadding(
+            padding: const EdgeInsets.only(left: 30,right: 30),
+            sliver: SliverToBoxAdapter(
+
+              child: ClipRRect( borderRadius: BorderRadius.circular(20),
+    child:
+
+              Container(
+                padding: const EdgeInsets.all(0.5),
+                child:
+                ClipRRect( borderRadius: BorderRadius.circular(20),
+    child:
+
+                Container(
+
+               child:
+                Row(
+
+                  children: <Widget>[
+                    SizedBox(width: 15),
 
 
+                  Column(children: <Widget>[
+                    SizedBox(height: 5),
+
+                    DecoratedBox(
+                      decoration:BoxDecoration(color: Colors.white),
+                      child: Transform.rotate(
+                        //旋转90度
+                        angle:math.pi/2 ,
+                        child:  Icon(
+                          Icons.speaker_phone,
+                   // Icons.message_outlined,
+                   color:Color.fromRGBO(253, 117, 80, 1),
+                 ),
+                      ),
+                    ),
+
+                    Text(
+                      '消息',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color:Color.fromRGBO(253, 117, 80, 1),
+                        fontFamily: 'Roboto',
+                        fontSize: 12,
+                      ),
+                    ),
+                    ]),
+
+                    SizedBox(width: 10),
+                    SizedBox(child: Container(
+                      color:Colors.grey,
+                      height: 50,
+                      width: 1,
+                    ),),
+                    Spacer(), // use Spacer
+
+                  ],
+                ),
+                // height: 30,
+                  color:Colors.white,
+              ),
+                ),
+                color: Color.fromRGBO(253, 117, 80, 1),
+                height: 50,
+//                 decoration:  BoxDecoration(
+// // 背景
+//                   color: Colors.green,
+//                   // 设置四周圆角 角度
+//                   borderRadius: BorderRadius.all(Radius.circular(4.0)),
+//                   // 设置四周边框
+//                   // border: new Border.all(width: 1, color: Colors.red),
+//                 ),
+              ),
+            )
+            ),
+          ),
+
+
+
+
+
+
+//审核
           SliverPadding(
             padding: const EdgeInsets.only(top: 0.3,bottom: 0),
             sliver: SliverToBoxAdapter(
@@ -153,8 +238,8 @@ class _HomecustomSView extends State<HomePage> {
                     SizedBox(width: 10),
                     SizedBox(child: Container(
                       color:Color.fromRGBO(253, 117, 80, 1),
-                      height: 30,
-                      width: 7,
+                      height: 20,
+                      width: 5,
                     ),),
                     SizedBox(width: 10),
                 Text(
@@ -240,8 +325,8 @@ class _HomecustomSView extends State<HomePage> {
                     SizedBox(width: 10),
                     SizedBox(child: Container(
                       color:Color.fromRGBO(253, 117, 80, 1),
-                      height: 30,
-                      width: 7,
+                      height: 20,
+                      width: 5,
                     ),),
                     SizedBox(width: 10),
                     Text(
